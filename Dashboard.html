@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+</head>
+<body style="display:flex;">
+    
+
+    <div style="display: flex; flex-direction:row; justify-content:center; align-itens:center;width:100%;height:100%;">
+        <div>
+            <canvas id="Linhas" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+
+        <div>
+            <canvas id="Barras" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+    </div>
+
+
+    <!--Script Chart Linhas-->
+
+    <script>
+        //Linhas
+        const labelslin = [
+          '12:00',
+          '13:00',
+          '14:00',
+          '15:00',
+          '16:00',
+          '17:00',
+        ];
+      
+        const linhas = {
+          labels: labelslin,
+          datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [80, 82, 80, 85, 80, 83],
+        }
+        ]
+        };
+
+        //Barras
+
+        const labelsbar = [
+          'Janeiro',
+          'Fevereiro',
+          'Março',
+          'Abril',
+          'Maio',
+          'Junho',
+        ];
+      
+        const barras = {
+          labels: labelsbar,
+          datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [22, 24, 27, 23, 20, 18],
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [90, 89, 93, 87, 88, 82],
+        }
+        ]
+        };
+      
+        const configlin = {
+          type: 'line',
+          data: linhas,
+          options: {}
+        };
+
+        const configbar = {
+          type: 'bar',
+          data: barras,
+          options: {}
+        };
+    </script>
+    
+    <script>
+        const chLinha = new Chart(
+          document.getElementById('Linhas'),
+          configlin
+        );
+
+        const chBarra = new Chart(
+          document.getElementById('Barras'),
+          configbar
+        );
+    </script>
+
+
+
+</body>
+</html>
